@@ -682,7 +682,15 @@ class _HomeTabState extends State<HomeTab> {
                 Divider(
                     // height: 50,
                     ),
-           VideoPlayerScreen()
+           VideoPlayerScreen(),
+            Divider(
+                    // height: 50,
+                    ),
+           VideoPlayerScreen(),
+            Divider(
+                    // height: 50,
+                    ),
+           VideoPlayerScreen(),
               ],
             ),
           ),
@@ -695,9 +703,10 @@ class _HomeTabState extends State<HomeTab> {
 
 
 
-/// Stateful widget to fetch and then display video content.
+
+
 class VideoPlayerScreen extends StatefulWidget {
-  const VideoPlayerScreen({super.key});
+  const VideoPlayerScreen({Key? key}) : super(key: key);
 
   @override
   _VideoPlayerScreenState createState() => _VideoPlayerScreenState();
@@ -705,35 +714,62 @@ class VideoPlayerScreen extends StatefulWidget {
 
 class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   late VideoPlayerController _controller;
+  late ChewieController _chewieController;
 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.networkUrl(Uri.parse(
-        'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4'))
+    _controller = VideoPlayerController.network(
+        'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4')
       ..initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
         setState(() {});
       });
+
+    _chewieController = ChewieController(
+      videoPlayerController: _controller,
+      aspectRatio: 16 / 9, // Adjust based on your video aspect ratio
+      autoPlay: true,
+      looping: true,
+      showControls: true, // Set to false to hide controls initially
+      materialProgressColors: ChewieProgressColors(
+        playedColor: Colors.red,
+        handleColor: Colors.red,
+        backgroundColor: Colors.grey,
+        bufferedColor: Colors.grey,
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 200,
+      height: 300,
       width: double.infinity,
-      child: _controller.value.isInitialized
-          ? AspectRatio(
-              aspectRatio: _controller.value.aspectRatio,
-              child: VideoPlayer(_controller),
-            )
-          : Container(),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'video title',
+              style: TextStyle(fontSize: 15),
+            ),
+          ),
+         AspectRatio(
+                  aspectRatio: 16 / 9,
+            child: Chewie(
+              controller: _chewieController,
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   @override
   void dispose() {
-    super.dispose();
     _controller.dispose();
+    _chewieController.dispose();
+    super.dispose();
   }
 }
