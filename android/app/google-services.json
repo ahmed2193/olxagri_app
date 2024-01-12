@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "618858142282",
+    "firebase_url": "https://mark-classified-default-rtdb.firebaseio.com",
+    "project_id": "mark-classified",
+    "storage_bucket": "mark-classified.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618858142282:android:6437b4695d61671c43a4b3",
+        "android_client_info": {
+          "package_name": "com.olxagri.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618858142282-0e78chvilfg8pfgrf8691tlerqsag5rb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.olxagri.app",
+            "certificate_hash": "99bad2874cabde250fcd838f90bcac8df4fc8697"
+          }
+        },
+        {
+          "client_id": "618858142282-36gbrsun340ru0vemj2hkahmh4khrnuc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.olxagri.app",
+            "certificate_hash": "d929e7f056ea61f1574bda7ca2cb58fd5c0637e5"
+          }
+        },
+        {
+          "client_id": "618858142282-h66hbbkca20pjhqh4vslgu8jfb399fsl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBo3lAWx77zEGDjLiKVLYgYTCEXGyqtWiU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618858142282-h66hbbkca20pjhqh4vslgu8jfb399fsl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "618858142282-214htt5meo3mlcbnh9eeo3u5tn64ttoa.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.olxagri.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
